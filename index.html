@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kane Driver PRO V12.1.1 Phiếu Gọn</title>
+<style>
+:root{
+  --bg:#07111f;--card:#101d30;--card2:#071424;--line:#29415f;
+  --text:#fff;--muted:#aab6c8;--yellow:#ffd54f;--green:#20c466;
+  --red:#ff5b5b;--blue:#1d4e82;--cyan:#45c9ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:radial-gradient(circle at top,#1a3152 0,#07111f 70%);
+  color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  padding-bottom:96px;
+}
+.wrap{max-width:760px;margin:auto;padding:12px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  border:1px solid var(--line);border-radius:24px;padding:18px;margin:12px 0;
+}
+.head{display:flex;gap:16px;align-items:center}
+.logo{
+  width:72px;height:72px;border-radius:20px;background:var(--yellow);color:#06101c;
+  font-size:34px;font-weight:1000;display:flex;align-items:center;justify-content:center;
+}
+h1{font-size:30px;margin:0}
+.ver{color:var(--yellow);font-size:17px;margin-top:6px}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.label-top{color:var(--muted);font-size:20px;text-transform:uppercase}
+.total{font-size:48px;text-align:right;font-weight:1000;margin:8px 0 18px;letter-spacing:-1px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.box{
+  background:var(--card2);border:1px solid var(--line);border-radius:18px;
+  padding:12px;text-align:center
+}
+.box span{display:block;color:var(--muted);font-size:15px;margin-bottom:6px}
+.box b{font-size:22px}
+h2{font-size:27px;margin:0 0 14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.field label{font-size:15px;color:#c4cfdd;font-weight:800;padding-left:4px}
+input,select,textarea{
+  width:100%;background:var(--card2);color:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:13px 15px;font-size:19px;outline:none;
+}
+textarea{min-height:90px}
+input[type=date],input[type=time]{color-scheme:dark}
+.inputWrap{position:relative}
+.inputWrap input{padding-right:70px}
+.unit{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#93a4bb;font-weight:900}
+.note{color:var(--muted);font-size:14px;line-height:1.45;margin-top:4px}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.routeBtn{
+  border:1px solid var(--line);background:var(--card2);color:#fff;border-radius:18px;
+  padding:14px 10px;font-size:18px;font-weight:900;
+}
+.routeBtn.active{background:var(--yellow);color:#06101c;border:0}
+.info{
+  background:var(--card2);border-left:7px solid var(--yellow);border-radius:18px;
+  padding:14px;margin-top:12px;color:var(--muted);font-size:16px;line-height:1.45;
+}
+.info b{color:#fff}
+.resultCard{
+  background:var(--card2);border:1px solid var(--line);border-left-width:7px;
+  border-radius:22px;padding:18px;margin:14px 0;
+}
+.resultCard.yellow{border-left-color:var(--yellow)}
+.resultCard.red{border-left-color:var(--red)}
+.resultCard.green{border-left-color:var(--green)}
+.title{font-size:23px;font-weight:1000;margin-bottom:12px}
+.yellowText{color:var(--yellow)}.redText{color:var(--red)}.greenText{color:#5dff9b}
+.row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #20344d;padding:10px 0;color:var(--muted);font-size:16px}
+.row:last-child{border-bottom:0}.row b{color:#fff;text-align:right}
+.big{font-size:22px;font-weight:1000}
+.badge{display:inline-block;padding:8px 12px;border-radius:999px;font-weight:1000;margin-top:8px}
+.badge.green{background:rgba(36,194,106,.16);color:#5dff9b;border:1px solid rgba(93,255,155,.35)}
+.badge.yellow{background:rgba(255,213,79,.16);color:var(--yellow);border:1px solid rgba(255,213,79,.35)}
+.badge.red{background:rgba(255,91,91,.16);color:#ff8a8a;border:1px solid rgba(255,91,91,.35)}
+.receipt{
+  white-space:pre-wrap;background:var(--card2);border:1px solid var(--line);
+  border-radius:20px;padding:17px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:15px;line-height:1.42;min-height:64px;
+}
+.actions{
+  position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:8px;padding:12px 14px;z-index:10;max-width:760px;margin:auto;
+  background:rgba(3,10,18,.94);backdrop-filter:blur(16px);border-top:1px solid #26384d;
+}
+.actions button{border:0;border-radius:20px;padding:13px 4px;font-size:16px;font-weight:1000}
+.btnYellow{background:var(--yellow);color:#06101c}
+.btnGreen{background:var(--green);color:#fff}
+.btnBlue{background:var(--blue);color:#fff}
+@media(max-width:430px){
+  .wrap{padding:10px}.card{padding:16px;border-radius:22px}
+  .logo{width:64px;height:64px;font-size:32px}h1{font-size:26px}.ver{font-size:16px}
+  .label-top{font-size:18px}.total{font-size:42px}
+  h2{font-size:25px}.grid2{grid-template-columns:1fr}
+  .grid3{gap:8px}.box{padding:10px}.box span{font-size:14px}.box b{font-size:20px}
+  input,select,textarea{font-size:18px;padding:12px 14px}
+  .routeBtn{font-size:17px;padding:13px 10px}.title{font-size:21px}
+  .row{font-size:15px}.receipt{font-size:14px;line-height:1.38;padding:15px}
+  .actions button{font-size:15px;padding:12px 3px}
+}
+</style>
+</head>
+<body><noscript><div style="background:#ffd54f;color:#07111f;padding:12px;font-weight:900;text-align:center">Trình xem này đang tắt JavaScript. Hãy upload lên GitHub Pages hoặc mở bằng Safari để app tính động.</div></noscript>
+<div class="wrap">
+  <section class="card">
+    <div class="head">
+      <div class="logo">KD</div>
+      <div>
+        <h1>Kane Driver PRO</h1>
+        <div class="ver">V12.1.1 Multi-Day · Phiếu Gọn</div>
+      </div>
+    </div>
+    <hr>
+    <div class="label-top">Tổng báo giá dịch vụ</div>
+    <div class="total" id="topTotal">0đ</div>
+    <div class="grid3">
+      <div class="box"><span>Đã cọc</span><b id="topDeposit">0đ</b></div>
+      <div class="box"><span>Còn lại</span><b id="topRemain">0đ</b></div>
+      <div class="box"><span>Km lăn bánh</span><b id="topRealKm">0</b></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🚖 Tuyến quen</h2>
+    <div class="routes">
+      <button class="routeBtn" data-route="0">Sân bay</button>
+      <button class="routeBtn" data-route="1">Long An</button>
+      <button class="routeBtn" data-route="2">Bình Dương</button>
+      <button class="routeBtn" data-route="3">Đồng Nai</button>
+      <button class="routeBtn" data-route="4">Vũng Tàu</button>
+      <button class="routeBtn" data-route="5">Núi Bà Đen</button>
+      <button class="routeBtn" data-route="6">Phan Thiết</button>
+      <button class="routeBtn" data-route="7">Năm Căn</button>
+    </div>
+    <div class="info" id="routeInfo">Chọn tuyến quen để tự điền km và điểm đến.</div>
+  </section>
+
+  <section class="card">
+    <h2>1. Thông tin khách</h2>
+    <div class="grid2">
+      <div class="field"><label>👤 Tên khách hàng</label><input id="customerName" placeholder="Ví dụ: Anh Nam"></div>
+      <div class="field"><label>📞 Điện thoại</label><input id="customerPhone" placeholder="Số điện thoại"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. Market Mode – Báo khách</h2>
+    <div class="field"><label>📍 Điểm đón</label><input id="pickup" value="Lê Thành Tân Tạo"></div>
+    <div class="field"><label>🏁 Điểm đến</label><input id="destination" placeholder="Điểm đến"></div>
+    <div class="grid2">
+      <div class="field"><label>📏 Km một chiều (S)</label><div class="inputWrap"><input id="oneWayKm" type="number" value="16" min="0"><span class="unit">km</span></div></div>
+      <div class="field"><label>🚘 Hình thức</label><select id="tripType"><option value="mot_chieu">1 chiều</option><option value="khu_hoi">Khứ hồi</option></select></div>
+      <div class="field"><label>📆 Số ngày đi</label><div class="inputWrap"><input id="tripDays" type="number" value="1" min="1"><span class="unit">ngày</span></div><div class="note">Đi nhiều ngày mặc định tính theo khứ hồi.</div></div>
+      <div class="field"><label>💰 Giá chốt tay</label><div class="inputWrap"><input id="manualPrice" type="number" value="0" min="0"><span class="unit">đ</span></div><div class="note">Để 0 = dùng giá đề xuất của hệ thống.</div></div>
+      <div class="field"><label>💵 Tiền cọc</label><div class="inputWrap"><input id="deposit" type="number" value="0" min="0"><span class="unit">đ</span></div></div>
+      <div class="field"><label>📅 Ngày đón</label><input id="pickupDate" type="date"></div>
+      <div class="field"><label>🕒 Giờ đón</label><input id="pickupTime" type="time"></div>
+    </div>
+    <div class="note">BOT mặc định tính riêng theo hóa đơn thực tế, không gộp vào giá xe.</div>
+  </section>
+
+  <section class="card">
+    <h2>3. Cấu hình Cost Mode</h2>
+    <div class="grid2">
+      <div class="field"><label>⛽ Giá xăng hiện hành</label><div class="inputWrap"><input id="fuelPrice" type="number" value="23000"><span class="unit">đ/lít</span></div></div>
+      <div class="field"><label>🛢 Định mức tiêu hao</label><div class="inputWrap"><input id="fuelRate" type="number" value="7" step="0.1"><span class="unit">l/100km</span></div></div>
+      <div class="field"><label>🧰 Khấu hao + bảo dưỡng</label><div class="inputWrap"><input id="depreciation" type="number" value="1500"><span class="unit">đ/km</span></div></div>
+      <div class="field"><label>👨‍✈️ Công tài chặng ngắn</label><div class="inputWrap"><input id="shortWage" type="number" value="300000"><span class="unit">đ/cuốc</span></div></div>
+      <div class="field"><label>👨‍✈️ Công tài đường dài</label><div class="inputWrap"><input id="longWage" type="number" value="1200"><span class="unit">đ/km</span></div></div>
+      <div class="field"><label>🏨 Phụ phí ngày phát sinh</label><div class="inputWrap"><input id="extraDayFee" type="number" value="900000"><span class="unit">đ/ngày</span></div></div>
+      <div class="field"><label>🚙 Km phục vụ/ngày</label><div class="inputWrap"><input id="serviceKmPerDay" type="number" value="40"><span class="unit">km</span></div></div>
+      <div class="field"><label>🛌 Công tài phát sinh/ngày</label><div class="inputWrap"><input id="extraDriverWage" type="number" value="400000"><span class="unit">đ/ngày</span></div></div>
+      <div class="field"><label>🟢 Ngưỡng đèn xanh</label><div class="inputWrap"><input id="greenThreshold" type="number" value="30"><span class="unit">%</span></div></div>
+      <div class="field"><label>🟡 Ngưỡng đèn vàng</label><div class="inputWrap"><input id="yellowThreshold" type="number" value="15"><span class="unit">%</span></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>4. Kết quả tính toán</h2>
+    <div id="marketCard" class="resultCard yellow"><div class="title yellowText">🚖 MARKET MODE – BÁO KHÁCH</div>
+<div class="row"><span>Giá đề xuất của hệ thống</span><b>268.800đ</b></div>
+<div class="row"><span>Giá thực tế chốt với khách</span><b class="yellowText big">268.800đ</b></div>
+<div class="row"><span>Đã cọc</span><b>0đ</b></div>
+<div class="row"><span>Còn lại</span><b>268.800đ</b></div>
+<div class="row"><span>Quãng đường 1 chiều</span><b>16 km</b></div>
+<div class="row"><span>Hình thức</span><b>1 chiều</b></div>
+<div class="note">BOT chưa bao gồm. Khách thanh toán riêng theo hóa đơn thực tế.</div></div>
+    <div id="costCard" class="resultCard red"><div class="title redText">🛞 COST MODE – KIỂM TRA NỘI BỘ</div>
+<div class="row"><span>Tổng km lăn bánh dùng để tính chi phí</span><b>2 × 16 = 32 km</b></div>
+<div class="row"><span>Tiền xăng dự toán</span><b>51.520đ</b></div>
+<div class="row"><span>Khấu hao xe</span><b>48.000đ</b></div>
+<div class="row"><span>Lương tài xế</span><b>300.000đ</b></div>
+<div class="row"><span>Tổng chi phí ngầm</span><b class="redText big">399.520đ</b></div>
+<div class="row"><span>Lợi nhuận thực tế</span><b class="greenText big">-130.520đ</b></div>
+<div class="row"><span>Tỷ suất lợi nhuận</span><b>-48.5%</b></div></div>
+    <div id="decisionCard" class="resultCard red"><div class="title">📊 QUYẾT ĐỊNH ĐỀ XUẤT</div>
+<span class="badge red">🔴 Cân nhắc kỹ trước khi nhận</span>
+<p class="note">Đây là nội dung mẫu khi mở trong trình xem trước. Khi mở bằng Safari/GitHub Pages, hệ thống sẽ tính động theo dữ liệu bạn nhập.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>Phiếu gửi khách</h2>
+    <div class="receipt" id="customerReceipt">🚖 KANE DRIVER PRO
+📊 TỔNG BÁO GIÁ DỊCH VỤ
+💰 268.800đ
+
+- Đã cọc: 0đ | Còn lại: 268.800đ
+- Quãng đường: 16 km
+- Hình thức: 1 chiều
+- Lộ trình: Lê Thành Tân Tạo ➡️ Tân Sơn Nhất
+
+⚠️ Lưu ý: Giá trên chưa bao gồm phí cầu đường (BOT). Phí BOT khách vui lòng thanh toán riêng theo hóa đơn thực tế phát sinh khi di chuyển.
+${current.days >= 2 ? "Giá đã gồm phụ phí lưu xe + tài xế tự túc trong thời gian phục vụ." : ""}
+
+Rất hân hạnh được phục vụ Quý khách!</div>
+  </section>
+
+  <section class="card">
+    <h2>Phiếu nội bộ</h2>
+    <div class="receipt" id="internalReceipt">🛞 BẢNG KIỂM TRA LỢI NHUẬN NỘI BỘ
+
+Giá đề xuất của hệ thống: 268.800đ
+Giá thực tế chốt với khách: 268.800đ
+
+Tổng km lăn bánh dùng để tính chi phí:
+2 × 16 = 32 km
+
+Tiền xăng dự toán:
+(32 / 100) × 23.000 × 7 = 51.520đ
+
+Phí khấu hao xe:
+32 × 1.500 = 48.000đ
+
+Lương tài xế:
+300.000đ
+
+LỢI NHUẬN THỰC TẾ:
+-130.720đ
+
+Tỷ suất lợi nhuận:
+-48.5%
+
+QUYẾT ĐỊNH ĐỀ XUẤT:
+🔴 Cân nhắc kỹ trước khi nhận
+Nội dung mẫu; mở bằng Safari/GitHub Pages để tính động.</div>
+  </section>
+</div>
+
+<div class="actions">
+  <button class="btnYellow" id="calcBtn">Tính giá</button>
+  <button class="btnGreen" id="copyCustomerBtn">📋 Copy khách</button>
+  <button class="btnBlue" id="copyInternalBtn">📋 Copy nội bộ</button>
+</div>
+
+<script>
+(function(){
+  var routes = [
+    {name:"Sân bay", dest:"Tân Sơn Nhất", km:16},
+    {name:"Long An", dest:"Long An", km:40},
+    {name:"Bình Dương", dest:"Bình Dương", km:45},
+    {name:"Đồng Nai", dest:"Đồng Nai", km:55},
+    {name:"Vũng Tàu", dest:"Vũng Tàu", km:115},
+    {name:"Núi Bà Đen", dest:"Núi Bà Đen Tây Ninh", km:99},
+    {name:"Phan Thiết", dest:"Phan Thiết", km:184},
+    {name:"Năm Căn", dest:"Năm Căn, Cà Mau", km:380}
+  ];
+  var current = {};
+
+  function el(id){ return document.getElementById(id); }
+  function num(id){ return Number((el(id) && el(id).value) || 0); }
+  function money(n){ return Math.round(Number(n)||0).toLocaleString("vi-VN") + "đ"; }
+  function row(a,b,cls){
+    return '<div class="row"><span>'+a+'</span><b class="'+(cls||'')+'">'+b+'</b></div>';
+  }
+
+  function systemPrice(S,type){
+    if(S <= 20) return type === "khu_hoi" ? Math.round(S * 2 * 16800) : Math.round(S * 16800);
+    if(S < 50) return type === "khu_hoi" ? Math.round(S*2*11500) : Math.round(S*15000);
+    if(S <= 100) return type === "khu_hoi" ? Math.round(S*2*10500) : Math.round(S*13500);
+    if(S <= 150) return type === "khu_hoi" ? Math.round(S*2*8500) : Math.round(S*11500);
+    if(S <= 250) return type === "khu_hoi" ? Math.round(S*2*8000) : Math.round(S*11000);
+    if(S <= 350) return type === "khu_hoi" ? Math.round(S*2*7000) : Math.round(S*9500);
+    return type === "khu_hoi" ? Math.round(S*2*6000) : Math.round(S*8500);
+  }
+
+  function multiDayPrice(S, type, days){
+    if(days <= 1) return systemPrice(S,type);
+    return systemPrice(S,"khu_hoi") + ((days - 1) * num("extraDayFee"));
+  }
+
+  function dateText(){
+    var d = el("pickupDate").value;
+    var t = el("pickupTime").value || "--:--";
+    if(!d) return "-";
+    var p = d.split("-");
+    return t + " | " + p[2] + "/" + p[1] + "/" + p[0];
+  }
+
+  function decision(rate){
+    var green = num("greenThreshold");
+    var yellow = num("yellowThreshold");
+    if(rate >= green) return {color:"green", text:"🟢 Nên nhận chuyến", note:"Mức sinh lời tốt theo cấu hình."};
+    if(rate >= yellow) return {color:"yellow", text:"🟡 Có thể nhận nếu phù hợp lịch trình", note:"Mức sinh lời vừa phải, nên cân nhắc thời gian và khách quen."};
+    return {color:"red", text:"🔴 Cân nhắc kỹ trước khi nhận", note:"Mức sinh lời thấp, nên tăng giá hoặc bỏ chuyến nếu không cần giữ khách."};
+  }
+
+  function calculate(){
+    var S = num("oneWayKm");
+    var rawType = el("tripType").value;
+    var days = Math.max(1, Math.round(num("tripDays") || 1));
+    if(el("tripDays").value != String(days)) el("tripDays").value = days;
+    var effectiveType = days >= 2 ? "khu_hoi" : rawType;
+    if(days >= 2 && el("tripType").value !== "khu_hoi") el("tripType").value = "khu_hoi";
+
+    var proposed = multiDayPrice(S,effectiveType,days);
+    var manual = num("manualPrice");
+    var quote = manual > 0 ? manual : proposed;
+    var deposit = num("deposit");
+    var extraDays = Math.max(0, days - 1);
+    var realKm = (S * 2) + (extraDays * num("serviceKmPerDay"));
+
+    var fuel = Math.round((realKm/100) * num("fuelPrice") * num("fuelRate"));
+    var dep = Math.round(realKm * num("depreciation"));
+    var wageBase = S < 50 ? num("shortWage") : Math.round((S * 2) * num("longWage"));
+    var wage = wageBase + (extraDays * num("extraDriverWage"));
+    var cost = fuel + dep + wage;
+    var profit = quote - cost;
+    var rate = quote > 0 ? profit / quote * 100 : 0;
+    var d = decision(rate);
+
+    current = {
+      S:S, type:effectiveType, rawType:rawType, days:days, extraDays:extraDays, proposed:proposed, manual:manual, quote:quote, deposit:deposit,
+      remain:Math.max(0,quote-deposit), realKm:realKm, fuel:fuel, dep:dep,
+      wageBase:wageBase, wage:wage, cost:cost, profit:profit, rate:rate, decision:d,
+      pickup:el("pickup").value, destination:el("destination").value,
+      name:el("customerName").value, phone:el("customerPhone").value
+    };
+
+    render();
+  }
+
+  function render(){
+    el("topTotal").textContent = money(current.quote || 0);
+    el("topDeposit").textContent = money(current.deposit || 0);
+    el("topRemain").textContent = money(current.remain || 0);
+    el("topRealKm").textContent = (current.realKm || 0) + " km";
+
+    el("marketCard").innerHTML =
+      '<div class="title yellowText">🚖 MARKET MODE – BÁO KHÁCH</div>' +
+      row("Giá đề xuất của hệ thống", money(current.proposed)) +
+      row("Giá thực tế chốt với khách", money(current.quote), "yellowText big") +
+      row("Đã cọc", money(current.deposit)) +
+      row("Còn lại", money(current.remain)) +
+      row("Quãng đường 1 chiều", current.S + " km") +
+      row("Hình thức", current.type === "khu_hoi" ? "Khứ hồi" : "1 chiều") +
+      row("Thời gian", current.days + " ngày") +
+      row("Phụ phí ngày phát sinh", money(current.extraDays * num("extraDayFee"))) +
+      '<div class="note">BOT chưa bao gồm. Khách thanh toán riêng theo hóa đơn thực tế. Đi nhiều ngày đã gồm phụ phí lưu xe + tài xế tự túc theo cấu hình.</div>';
+
+    el("costCard").innerHTML =
+      '<div class="title redText">🛞 COST MODE – KIỂM TRA NỘI BỘ</div>' +
+      row("Tổng km lăn bánh dùng để tính chi phí", "2 × " + current.S + " + " + current.extraDays + " × " + num("serviceKmPerDay") + " = " + current.realKm + " km") +
+      row("Tiền xăng dự toán", money(current.fuel)) +
+      row("Khấu hao xe", money(current.dep)) +
+      row("Lương tài xế", money(current.wage)) +
+      row("Trong đó công ngày phát sinh", money(current.extraDays * num("extraDriverWage"))) +
+      row("Tổng chi phí ngầm", money(current.cost), "redText big") +
+      row("Lợi nhuận thực tế", money(current.profit), "greenText big") +
+      row("Tỷ suất lợi nhuận", current.rate.toFixed(1) + "%");
+
+    el("decisionCard").className = "resultCard " + current.decision.color;
+    el("decisionCard").innerHTML =
+      '<div class="title">📊 QUYẾT ĐỊNH ĐỀ XUẤT</div>' +
+      '<span class="badge '+current.decision.color+'">'+current.decision.text+'</span>' +
+      '<p class="note">'+current.decision.note+'</p>';
+
+    var timeLine = current.type === "mot_chieu"
+      ? "Theo chuyến (Đón trả 1 chiều)"
+      : (current.days + " ngày (Khứ hồi)");
+
+    el("customerReceipt").textContent =
+`🚖 KANE DRIVER PRO
+
+📊 TỔNG BÁO GIÁ DỊCH VỤ
+💰 ${money(current.quote)}
+
+- Đã cọc: ${money(current.deposit)} | Còn lại: ${money(current.remain)}
+- Quãng đường: ${current.S} km
+- Thời gian: ${timeLine}
+- Hình thức: ${current.type === "khu_hoi" ? "Khứ hồi" : "1 chiều"}
+- Lộ trình: ${current.pickup || "-"} ➡️ ${current.destination || "-"}
+- Thời gian đón: ${dateText()}
+
+⚠️ Lưu ý: Giá trên chưa bao gồm phí cầu đường (BOT). Phí BOT khách vui lòng thanh toán riêng theo hóa đơn thực tế phát sinh khi di chuyển.
+${current.days >= 2 ? "Giá đã gồm phụ phí lưu xe + tài xế tự túc trong thời gian phục vụ." : ""}
+
+Rất hân hạnh được phục vụ Quý khách!`;
+
+    el("internalReceipt").textContent =
+`🛞 BẢNG KIỂM TRA LỢI NHUẬN NỘI BỘ
+
+Giá đề xuất của hệ thống: ${money(current.proposed)}
+Giá thực tế chốt với khách: ${money(current.quote)}
+
+Tổng km lăn bánh dùng để tính chi phí:
+2 × ${current.S} + ${current.extraDays} × ${num("serviceKmPerDay")} = ${current.realKm} km
+
+Tiền xăng dự toán:
+(${current.realKm} / 100) × ${num("fuelPrice").toLocaleString("vi-VN")} × ${num("fuelRate")} = ${money(current.fuel)}
+
+Phí khấu hao xe:
+${current.realKm} × ${num("depreciation").toLocaleString("vi-VN")} = ${money(current.dep)}
+
+Lương tài xế:
+${money(current.wage)}
+Trong đó công ngày phát sinh:
+${money(current.extraDays * num("extraDriverWage"))}
+
+LỢI NHUẬN THỰC TẾ:
+${money(current.profit)}
+
+Tỷ suất lợi nhuận:
+${current.rate.toFixed(1)}%
+
+QUYẾT ĐỊNH ĐỀ XUẤT:
+${current.decision.text}
+${current.decision.note}`;
+  }
+
+  function chooseRoute(index){
+    var r = routes[index];
+    el("destination").value = r.dest;
+    el("oneWayKm").value = r.km;
+    var buttons = document.querySelectorAll(".routeBtn");
+    for(var i=0;i<buttons.length;i++) buttons[i].classList.toggle("active", i === index);
+    el("routeInfo").innerHTML = "<b>"+r.name+"</b><br>Đã nhập "+r.km+" km một chiều. Nếu đi nhiều ngày, nhập Số ngày đi rồi bấm Tính giá.";
+    calculate();
+  }
+
+  function setDefaultTime(){
+    var d = new Date();
+    d.setHours(d.getHours()+1);
+    el("pickupDate").value = d.toISOString().slice(0,10);
+    el("pickupTime").value = String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+  }
+
+  function copyText(text, msg, openZalo){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        alert(msg);
+        if(openZalo) location.href = "zalo://";
+      }).catch(function(){ alert("Không copy tự động được. Hãy bôi đen và sao chép thủ công."); });
+    }else{
+      alert("Trình duyệt không hỗ trợ copy tự động. Hãy bôi đen và sao chép thủ công.");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    var buttons = document.querySelectorAll(".routeBtn");
+    for(var i=0;i<buttons.length;i++){
+      buttons[i].addEventListener("click", function(){
+        chooseRoute(Number(this.getAttribute("data-route")));
+      });
+    }
+
+    var inputs = document.querySelectorAll("input,select,textarea");
+    for(var j=0;j<inputs.length;j++){
+      inputs[j].addEventListener("input", calculate);
+      inputs[j].addEventListener("change", calculate);
+    }
+
+    el("calcBtn").addEventListener("click", calculate);
+    el("copyCustomerBtn").addEventListener("click", function(){ calculate(); copyText(el("customerReceipt").innerText, "Đã sao chép phiếu gửi khách.", true); });
+    el("copyInternalBtn").addEventListener("click", function(){ calculate(); copyText(el("internalReceipt").innerText, "Đã sao chép phiếu nội bộ.", false); });
+
+    setDefaultTime();
+    calculate();
+  });
+})();
+</script>
+</body>
+</html>
