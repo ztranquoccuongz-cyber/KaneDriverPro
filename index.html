@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kane Driver PRO V12.2 Stable Defaults</title>
+<title>Kane Driver PRO V13.1 Master Calendar</title>
 <style>
 :root{
   --bg:#07111f;--card:#101d30;--card2:#071424;--line:#29415f;
@@ -32,13 +32,43 @@ textarea{min-height:90px}input[type=date],input[type=time]{color-scheme:dark}
 .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #20344d;padding:10px 0;color:var(--muted);font-size:16px}.row:last-child{border-bottom:0}.row b{color:#fff;text-align:right}.big{font-size:22px;font-weight:1000}
 .badge{display:inline-block;padding:8px 12px;border-radius:999px;font-weight:1000;margin-top:8px}.badge.green{background:rgba(36,194,106,.16);color:#5dff9b;border:1px solid rgba(93,255,155,.35)}.badge.yellow{background:rgba(255,213,79,.16);color:var(--yellow);border:1px solid rgba(255,213,79,.35)}.badge.red{background:rgba(255,91,91,.16);color:#ff8a8a;border:1px solid rgba(255,91,91,.35)}
 .receipt{white-space:pre-wrap;background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:17px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;line-height:1.42;min-height:64px}
-.actions{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:12px 14px;z-index:10;max-width:760px;margin:auto;background:rgba(3,10,18,.94);backdrop-filter:blur(16px);border-top:1px solid #26384d}.actions button{border:0;border-radius:20px;padding:13px 4px;font-size:16px;font-weight:1000}.btnYellow{background:var(--yellow);color:#06101c}.btnGreen{background:var(--green);color:#fff}.btnBlue{background:var(--blue);color:#fff}
+.actions{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:12px 14px;z-index:10;max-width:760px;margin:auto;background:rgba(3,10,18,.94);backdrop-filter:blur(16px);border-top:1px solid #26384d}.actions button{border:0;border-radius:20px;padding:13px 4px;font-size:16px;font-weight:1000}.btnYellow{background:var(--yellow);color:#06101c}.btnGreen{background:var(--green);color:#fff}.btnBlue{background:var(--blue);color:#fff}
 @media(max-width:430px){.wrap{padding:10px}.card{padding:16px;border-radius:22px}.logo{width:64px;height:64px;font-size:32px}h1{font-size:26px}.ver{font-size:16px}.label-top{font-size:18px}.total{font-size:42px}h2{font-size:25px}.grid2{grid-template-columns:1fr}.grid3{gap:8px}.box{padding:10px}.box span{font-size:14px}.box b{font-size:20px}input,select,textarea{font-size:18px;padding:12px 14px}.routeBtn{font-size:17px;padding:13px 10px}.title{font-size:21px}.row{font-size:15px}.receipt{font-size:14px;line-height:1.38;padding:15px}.actions button{font-size:15px;padding:12px 3px}}
+
+.tripCard{background:#071424;border:1px solid var(--line);border-radius:20px;padding:14px;margin:12px 0}
+.tripTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.tripId{font-weight:1000;color:var(--yellow);font-size:18px}
+.tripActions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.smallBtn{border:0;border-radius:14px;padding:10px 8px;font-size:14px;font-weight:900;background:#173a5e;color:#fff}
+.smallBtn.red{background:#7a2530}.smallBtn.green{background:#177a45}
+.statusSelect{background:#071424;color:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;font-size:15px;width:100%;margin-top:10px}
+.backupBox{width:100%;min-height:130px;margin-top:10px;font-size:13px}
+@media(max-width:430px){.actions button{font-size:13px}.tripActions{grid-template-columns:1fr}}
+
+
+.profitGreen{color:#5dff9b!important}
+.profitYellow{color:#ffd54f!important}
+.profitRed{color:#ff8a8a!important}
+.paySelect{background:#071424;color:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;font-size:15px;width:100%;margin-top:10px}
+
+
+.calendarDay{background:#071424;border:1px solid var(--line);border-left:7px solid var(--cyan);border-radius:18px;padding:14px;margin:10px 0}
+.calendarDay b{color:#fff}
+.calendarTrip{background:#071424;border:1px solid var(--line);border-radius:16px;padding:12px;margin:10px 0}
+.calendarTime{font-size:22px;font-weight:1000;color:var(--yellow)}
+.calendarSummary{background:#071424;border:1px solid var(--line);border-left:7px solid var(--green);border-radius:18px;padding:14px;margin:12px 0;color:var(--muted)}
+
+
+.todayTag{display:inline-block;background:rgba(255,213,79,.18);color:#ffd54f;border:1px solid rgba(255,213,79,.45);border-radius:999px;padding:3px 8px;font-weight:1000;margin-left:6px}
+.calendarDay.today{border-left-color:var(--yellow);box-shadow:0 0 0 1px rgba(255,213,79,.18) inset}
+.calendarDots{font-size:19px;margin:5px 0}
+.monthHeader{background:#071424;border:1px solid var(--line);border-left:7px solid var(--yellow);border-radius:18px;padding:14px;margin:12px 0}
+
 </style>
 </head>
 <body>
 <div class="wrap">
-<section class="card"><div class="head"><div class="logo">KD</div><div><h1>Kane Driver PRO</h1><div class="ver">V12.2 Stable · Lưu Cấu Hình</div></div></div><hr><div class="label-top">Tổng báo giá dịch vụ</div><div class="total" id="topTotal">0đ</div><div class="grid3"><div class="box"><span>Đã cọc</span><b id="topDeposit">0đ</b></div><div class="box"><span>Còn lại</span><b id="topRemain">0đ</b></div><div class="box"><span>Km lăn bánh</span><b id="topRealKm">0</b></div></div></section>
+<section class="card"><div class="head"><div class="logo">KD</div><div><h1>Kane Driver PRO</h1><div class="ver">V13.1 · Master Calendar</div></div></div><hr><div class="label-top">Tổng báo giá dịch vụ</div><div class="total" id="topTotal">0đ</div><div class="grid3"><div class="box"><span>Đã cọc</span><b id="topDeposit">0đ</b></div><div class="box"><span>Còn lại</span><b id="topRemain">0đ</b></div><div class="box"><span>Km lăn bánh</span><b id="topRealKm">0</b></div></div></section>
 
 <section class="card"><h2>🚖 Tuyến quen</h2><div class="routes">
 <button class="routeBtn" data-route="0">Sân bay</button><button class="routeBtn" data-route="1">Long An</button><button class="routeBtn" data-route="2">Bình Dương</button><button class="routeBtn" data-route="3">Đồng Nai</button><button class="routeBtn" data-route="4">Vũng Tàu</button><button class="routeBtn" data-route="5">Núi Bà Đen</button><button class="routeBtn" data-route="6">Phan Thiết</button><button class="routeBtn" data-route="7">Năm Căn</button>
@@ -75,8 +105,27 @@ textarea{min-height:90px}input[type=date],input[type=time]{color-scheme:dark}
 <section class="card"><h2>4. Kết quả tính toán</h2><div id="marketCard" class="resultCard yellow"></div><div id="costCard" class="resultCard red"></div><div id="decisionCard" class="resultCard green"></div></section>
 <section class="card"><h2>Phiếu gửi khách</h2><div class="receipt" id="customerReceipt"></div></section>
 <section class="card"><h2>Phiếu nội bộ</h2><div class="receipt" id="internalReceipt"></div></section>
+
+<section class="card">
+<h2>5. 💾 Quản lý chuyến xe</h2>
+<div class="grid2">
+  <button class="routeBtn" id="showTripsBtn">📒 Hiển thị lịch sử</button>
+  <button class="routeBtn" id="exportJsonBtn">⬇️ Xuất JSON</button>
 </div>
-<div class="actions"><button class="btnYellow" id="calcBtn">Tính giá</button><button class="btnGreen" id="copyCustomerBtn">📋 Copy khách</button><button class="btnBlue" id="copyInternalBtn">📋 Copy nội bộ</button></div>
+<div style="height:10px"></div>
+<div class="field">
+<label>📥 Nhập JSON khôi phục</label>
+<textarea id="jsonImportBox" class="backupBox" placeholder="Dán JSON backup vào đây nếu cần khôi phục dữ liệu"></textarea>
+</div>
+<div class="grid2">
+  <button class="routeBtn" id="importJsonBtn">📥 Nhập JSON</button>
+  <button class="routeBtn" id="clearTrashBtn">🧹 Xóa vĩnh viễn chuyến đã hủy</button>
+</div>
+<div id="tripList"></div>
+</section>
+
+</div>
+<div class="actions"><button class="btnYellow" id="calcBtn">Tính giá</button><button class="btnGreen" id="saveTripBtn">💾 Lưu</button><button class="btnBlue" id="copyCustomerBtn">📋 Khách</button><button class="btnBlue" id="copyInternalBtn">📋 Nội bộ</button></div>
 
 <script>
 (function(){
@@ -196,6 +245,491 @@ ${current.decision.note}`;
   function chooseRoute(i){var r=routes[i];el("destination").value=r.dest;el("oneWayKm").value=r.km;var bs=document.querySelectorAll(".routeBtn");for(var x=0;x<bs.length;x++)bs[x].classList.toggle("active",x===i);el("routeInfo").innerHTML="<b>"+r.name+"</b><br>Đã nhập "+r.km+" km một chiều. Nếu đi nhiều ngày, nhập Số ngày đi rồi bấm Tính giá.";calculate();}
   function setDefaultTime(){var d=new Date();d.setHours(d.getHours()+1);el("pickupDate").value=d.toISOString().slice(0,10);el("pickupTime").value=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");}
   function copyText(text,msg,openZalo){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){alert(msg);if(openZalo)location.href="zalo://";}).catch(function(){alert("Không copy tự động được.")})}else alert("Trình duyệt không hỗ trợ copy tự động.")}
+  
+  var TRIP_KEY = "kane_driver_pro_v12_4_trips";
+  function uuid(){ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); return "uuid-" + Date.now() + "-" + Math.random().toString(16).slice(2); }
+  function pad4(n){ return String(n).padStart(4,"0"); }
+  function todayKey(d){ return ""+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0"); }
+  function nowText(){ return new Date().toLocaleString("vi-VN"); }
+  function loadTrips(){ try{return JSON.parse(localStorage.getItem(TRIP_KEY)||"[]")}catch(e){return[]} }
+  function saveTrips(trips){ localStorage.setItem(TRIP_KEY,JSON.stringify(trips)); }
+  function statusName(code){ code=Number(code); if(code===1)return"🟢 Đã nhận"; if(code===2)return"🚗 Đang chạy"; if(code===3)return"✅ Hoàn thành"; if(code===4)return"❌ Đã hủy"; return"🟡 Chưa xác nhận"; }
+  function paymentName(code){ code=Number(code); if(code===2)return"Đã thanh toán"; if(code===1)return"Thanh toán một phần"; return"Chưa thanh toán"; }
+  function nextTripId(){
+    var trips=loadTrips(), key=todayKey(new Date()), max=0;
+    trips.forEach(function(t){ if(t.displayId && t.displayId.indexOf("KD"+key+"-")===0){ var n=Number(t.displayId.split("-")[1]||0); if(n>max)max=n; } });
+    return "KD"+key+"-"+pad4(max+1);
+  }
+  function tripFromCurrent(){
+    calculate();
+    var d=new Date(), pday=el("pickupDate").value || d.toISOString().slice(0,10), parts=pday.split("-");
+    return {
+      displayId: nextTripId(), uuid: uuid(), createdAt: nowText(), updatedAt: nowText(),
+      tripYear: parts[0]||String(d.getFullYear()), tripMonth: parts[1]||String(d.getMonth()+1).padStart(2,"0"), tripDay: parts[2]||String(d.getDate()).padStart(2,"0"),
+      customerName: (el("customerName").value||"Khách vãng lai").trim(), customerPhone: (el("customerPhone").value||"Chưa cập nhật").trim(), note: "",
+      pickupDateTime: dateText(), pickup: current.pickup||"", destination: current.destination||"", route: (current.pickup||"-")+" ➡️ "+(current.destination||"-"),
+      oneWayKm: current.S, tripType: current.type, days: current.days, proposedPrice: current.proposed, finalPrice: current.quote,
+      deposit: current.deposit, remain: current.remain, fuelCost: current.fuel, depreciationCost: current.dep, driverWage: current.wage,
+      profit: current.profit, profitRate: Number(current.rate.toFixed(1)), realKm: current.realKm, status: 0,
+      paymentStatus: current.remain<=0?2:(current.deposit>0?1:0), deleted: false
+    };
+  }
+  function saveCurrentTrip(){ var trips=loadTrips(), trip=tripFromCurrent(); trips.unshift(trip); saveTrips(trips); renderTrips(); alert("Đã lưu chuyến: "+trip.displayId); }
+  function renderTrips(){
+    var trips=loadTrips(), box=el("tripList"); if(!box)return;
+    if(!trips.length){box.innerHTML='<div class="info">Chưa có chuyến nào được lưu.</div>';return}
+    box.innerHTML=trips.map(function(t){
+      return '<div class="tripCard"><div class="tripTop"><div><div class="tripId">'+t.displayId+'</div><div class="note">'+(t.pickupDateTime||"-")+'</div></div><b>'+statusName(t.status)+'</b></div>'+
+      '<div class="row"><span>👤 Khách</span><b>'+(t.customerName||"Khách vãng lai")+' - '+(t.customerPhone||"Chưa cập nhật")+'</b></div>'+
+      '<div class="row"><span>📍 Tuyến</span><b>'+(t.route||"-")+'</b></div>'+
+      '<div class="row"><span>Km / Hình thức</span><b>'+t.oneWayKm+' km - '+(t.tripType==="khu_hoi"?"Khứ hồi":"1 chiều")+' - '+t.days+' ngày</b></div>'+
+      '<div class="row"><span>💰 Giá chốt</span><b>'+money(t.finalPrice)+' | Cọc: '+money(t.deposit)+' | Còn: '+money(t.remain)+'</b></div>'+
+      '<div class="row"><span>📊 Lãi thuần</span><b>'+money(t.profit)+' ('+t.profitRate+'%)</b></div>'+
+      '<select class="statusSelect" data-status="'+t.uuid+'"><option value="0">🟡 Chưa xác nhận</option><option value="1">🟢 Đã nhận</option><option value="2">🚗 Đang chạy</option><option value="3">✅ Hoàn thành</option><option value="4">❌ Đã hủy</option></select>'+
+      '<div class="tripActions"><button class="smallBtn" data-view="'+t.uuid+'">👁 Chi tiết</button><button class="smallBtn green" data-update="'+t.uuid+'">💾 Lưu trạng thái</button><button class="smallBtn red" data-delete="'+t.uuid+'">🗑 Xóa mềm</button></div></div>';
+    }).join("");
+    document.querySelectorAll("[data-status]").forEach(function(s){ var id=s.getAttribute("data-status"), t=trips.find(function(x){return x.uuid===id}); if(t)s.value=t.status; });
+    document.querySelectorAll("[data-view]").forEach(function(b){b.onclick=function(){viewTrip(this.getAttribute("data-view"))}});
+    document.querySelectorAll("[data-update]").forEach(function(b){b.onclick=function(){updateTripStatus(this.getAttribute("data-update"))}});
+    document.querySelectorAll("[data-delete]").forEach(function(b){b.onclick=function(){softDeleteTrip(this.getAttribute("data-delete"))}});
+  }
+  function viewTrip(id){
+    var t=loadTrips().find(function(x){return x.uuid===id}); if(!t){alert("Không tìm thấy chuyến.");return}
+    alert("🆔 "+t.displayId+"\nKhách: "+t.customerName+" - "+t.customerPhone+"\nNgày đón: "+t.pickupDateTime+"\nLộ trình: "+t.route+"\nKm: "+t.oneWayKm+" | "+(t.tripType==="khu_hoi"?"Khứ hồi":"1 chiều")+" | "+t.days+" ngày\nGiá đề xuất: "+money(t.proposedPrice)+"\nGiá chốt: "+money(t.finalPrice)+"\nCọc: "+money(t.deposit)+" | Còn lại: "+money(t.remain)+"\nXăng: "+money(t.fuelCost)+"\nKhấu hao: "+money(t.depreciationCost)+"\nCông tài: "+money(t.driverWage)+"\nLợi nhuận: "+money(t.profit)+" ("+t.profitRate+"%)\nTrạng thái: "+statusName(t.status)+"\nThanh toán: "+paymentName(t.paymentStatus)+"\nTạo: "+t.createdAt+"\nSửa cuối: "+t.updatedAt);
+  }
+  function updateTripStatus(id){ var trips=loadTrips(), t=trips.find(function(x){return x.uuid===id}), s=document.querySelector('[data-status="'+id+'"]'); if(t&&s){t.status=Number(s.value);t.updatedAt=nowText();saveTrips(trips);renderTrips();alert("Đã cập nhật trạng thái "+t.displayId)} }
+  function softDeleteTrip(id){ var trips=loadTrips(), t=trips.find(function(x){return x.uuid===id}); if(!t)return; if(confirm("⚠️ Bạn có chắc muốn xóa chuyến "+t.displayId+" này không? Chuyến sẽ chuyển sang Đã hủy.")){t.status=4;t.deleted=true;t.updatedAt=nowText();saveTrips(trips);renderTrips();} }
+  function clearTrash(){ if(!confirm("Xóa vĩnh viễn tất cả chuyến đã hủy / thùng rác?"))return; saveTrips(loadTrips().filter(function(t){return !(t.deleted||Number(t.status)===4)})); renderTrips(); }
+  function exportJson(){ var payload={version:"12.4",createdAt:new Date().toISOString(),trips:loadTrips()}; var text=JSON.stringify(payload,null,2); el("jsonImportBox").value=text; copyText(text,"Đã xuất JSON và sao chép dữ liệu backup.",false); }
+  function importJson(){ try{ var raw=el("jsonImportBox").value.trim(); if(!raw){alert("Chưa có JSON để nhập.");return} var data=JSON.parse(raw), trips=Array.isArray(data)?data:(data.trips||[]); if(!Array.isArray(trips))throw new Error("Sai định dạng"); if(!confirm("Nhập "+trips.length+" chuyến vào bộ nhớ? Dữ liệu hiện tại sẽ được thay thế."))return; saveTrips(trips); renderTrips(); alert("Đã nhập dữ liệu JSON."); }catch(e){alert("JSON không hợp lệ.")} }
+
+  
+  function profitLamp(rate){
+    rate = Number(rate)||0;
+    if(rate >= 30) return {icon:"🟢", cls:"profitGreen"};
+    if(rate >= 15) return {icon:"🟡", cls:"profitYellow"};
+    return {icon:"🔴", cls:"profitRed"};
+  }
+  function paymentName(code){
+    code=Number(code);
+    if(code===2)return"🟢 Đã thu đủ";
+    if(code===1)return"🟡 Đã cọc";
+    return"🔴 Chưa thanh toán";
+  }
+  function splitPickupDateTime(){
+    var d = el("pickupDate") ? el("pickupDate").value : "";
+    var t = el("pickupTime") ? el("pickupTime").value : "";
+    var now = new Date();
+    if(!d) d = now.toISOString().slice(0,10);
+    if(!t) t = String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0");
+    return {date:d, time:t};
+  }
+  function tripTimeLabel(t){
+    if(t.tripType === "mot_chieu") return t.oneWayKm+" km • 1 chiều • Theo chuyến";
+    return t.oneWayKm+" km • Khứ hồi • "+(t.days||1)+" ngày";
+  }
+  function tripFromCurrent(){
+    calculate();
+    var p = splitPickupDateTime();
+    var parts = p.date.split("-");
+    return {
+      displayId: nextTripId(),
+      uuid: uuid(),
+      createdAt: nowText(),
+      updatedAt: nowText(),
+      pickupDate: p.date,
+      pickupTime: p.time,
+      tripYear: parts[0] || "",
+      tripMonth: parts[1] || "",
+      tripDay: parts[2] || "",
+      customerName: (el("customerName").value||"Khách vãng lai").trim(),
+      customerPhone: (el("customerPhone").value||"Chưa cập nhật").trim(),
+      note: "",
+      pickupDateTime: p.time + " | " + p.date.split("-").reverse().join("/"),
+      pickup: current.pickup||"",
+      destination: current.destination||"",
+      route: (current.pickup||"-")+" ➡️ "+(current.destination||"-"),
+      oneWayKm: current.S,
+      tripType: current.type,
+      days: current.days,
+      proposedPrice: current.proposed,
+      finalPrice: current.quote,
+      deposit: current.deposit,
+      remain: current.remain,
+      fuelCost: current.fuel,
+      depreciationCost: current.dep,
+      driverWage: current.wage,
+      profit: current.profit,
+      profitRate: Number(current.rate.toFixed(1)),
+      realKm: current.realKm,
+      status: 0,
+      paymentStatus: current.remain<=0?2:(current.deposit>0?1:0),
+      paymentUpdatedAt: "",
+      deleted: false
+    };
+  }
+  function renderTrips(){
+    var trips=loadTrips(), box=el("tripList"); if(!box)return;
+    if(!trips.length){box.innerHTML='<div class="info">Chưa có chuyến nào được lưu.</div>';return}
+    box.innerHTML=trips.map(function(t){
+      if(!t.pickupDate && t.pickupDateTime){
+        t.pickupDate = "";
+        t.pickupTime = "";
+      }
+      var lamp = profitLamp(t.profitRate);
+      return '<div class="tripCard">'+
+      '<div class="tripTop"><div><div class="tripId">🆔 '+t.displayId+'</div><div class="note">📅 Ngày đón: '+(t.pickupDate||"-")+' | ⏰ Giờ đón: '+(t.pickupTime||"-")+'</div></div><b>'+statusName(t.status)+'</b></div>'+
+      '<div class="row"><span>👤 Khách</span><b>'+(t.customerName||"Khách vãng lai")+' - '+(t.customerPhone||"Chưa cập nhật")+'</b></div>'+
+      '<div class="row"><span>📍 Tuyến</span><b>'+(t.route||"-")+'</b></div>'+
+      '<div class="row"><span>Km / Hình thức</span><b>'+tripTimeLabel(t)+'</b></div>'+
+      '<div class="row"><span>💰 Giá chốt</span><b>'+money(t.finalPrice)+'</b></div>'+
+      '<div class="row"><span>Cọc / Còn lại</span><b>Cọc: '+money(t.deposit)+' • Còn lại: '+money(t.remain)+'</b></div>'+
+      '<div class="row"><span>💳 Thanh toán</span><b>'+paymentName(t.paymentStatus)+'</b></div>'+
+      '<div class="row"><span>📊 Lãi thuần</span><b class="'+lamp.cls+'">'+lamp.icon+' '+money(t.profit)+' ('+t.profitRate+'%)</b></div>'+
+      '<select class="statusSelect" data-status="'+t.uuid+'"><option value="0">🟡 Chưa xác nhận</option><option value="1">🟢 Đã nhận</option><option value="2">🚗 Đang chạy</option><option value="3">✅ Hoàn thành</option><option value="4">❌ Đã hủy</option></select>'+
+      '<select class="paySelect" data-pay="'+t.uuid+'"><option value="0">🔴 Chưa thanh toán</option><option value="1">🟡 Đã cọc</option><option value="2">🟢 Đã thu đủ</option></select>'+
+      '<div class="tripActions"><button class="smallBtn" data-view="'+t.uuid+'">👁 Chi tiết</button><button class="smallBtn green" data-update="'+t.uuid+'">💾 Lưu trạng thái</button><button class="smallBtn red" data-delete="'+t.uuid+'">🗑 Xóa mềm</button></div></div>';
+    }).join("");
+    saveTrips(trips);
+    document.querySelectorAll("[data-status]").forEach(function(s){ var id=s.getAttribute("data-status"), t=trips.find(function(x){return x.uuid===id}); if(t)s.value=t.status; });
+    document.querySelectorAll("[data-pay]").forEach(function(s){ var id=s.getAttribute("data-pay"), t=trips.find(function(x){return x.uuid===id}); if(t)s.value=t.paymentStatus||0; });
+    document.querySelectorAll("[data-view]").forEach(function(b){b.onclick=function(){viewTrip(this.getAttribute("data-view"))}});
+    document.querySelectorAll("[data-update]").forEach(function(b){b.onclick=function(){updateTripStatus(this.getAttribute("data-update"))}});
+    document.querySelectorAll("[data-delete]").forEach(function(b){b.onclick=function(){softDeleteTrip(this.getAttribute("data-delete"))}});
+  }
+  function updateTripStatus(id){
+    var trips=loadTrips(), t=trips.find(function(x){return x.uuid===id});
+    var s=document.querySelector('[data-status="'+id+'"]');
+    var p=document.querySelector('[data-pay="'+id+'"]');
+    if(t){
+      if(s) t.status=Number(s.value);
+      if(p){
+        var newPay = Number(p.value);
+        if(Number(t.paymentStatus||0)!==newPay){
+          t.paymentStatus = newPay;
+          t.paymentUpdatedAt = nowText();
+        }
+      }
+      t.updatedAt=nowText();
+      saveTrips(trips);renderTrips();alert("Đã cập nhật "+t.displayId);
+    }
+  }
+  function softDeleteTrip(id){
+    var trips=loadTrips(), t=trips.find(function(x){return x.uuid===id}); if(!t)return;
+    if(confirm("⚠️ Bạn có chắc muốn xóa chuyến "+t.displayId+" này không? Chuyến sẽ chuyển sang Đã hủy.")){
+      var stamp="Đã hủy lúc "+nowText();
+      t.status=4;t.deleted=true;t.updatedAt=nowText();
+      t.note = (t.note ? t.note + "\\n" : "") + stamp;
+      saveTrips(trips);renderTrips();
+    }
+  }
+  function viewTrip(id){
+    var t=loadTrips().find(function(x){return x.uuid===id}); if(!t){alert("Không tìm thấy chuyến.");return}
+    alert("🆔 "+t.displayId+
+      "\nNgày đón: "+(t.pickupDate||"-")+" | Giờ: "+(t.pickupTime||"-")+
+      "\nKhách: "+t.customerName+" - "+t.customerPhone+
+      "\nLộ trình: "+t.route+
+      "\nHành trình: "+tripTimeLabel(t)+
+      "\nGiá đề xuất: "+money(t.proposedPrice)+
+      "\nGiá chốt: "+money(t.finalPrice)+
+      "\nCọc: "+money(t.deposit)+" | Còn lại: "+money(t.remain)+
+      "\nThanh toán: "+paymentName(t.paymentStatus)+
+      "\nCập nhật thanh toán: "+(t.paymentUpdatedAt||"-")+
+      "\nXăng: "+money(t.fuelCost)+
+      "\nKhấu hao: "+money(t.depreciationCost)+
+      "\nCông tài: "+money(t.driverWage)+
+      "\nLợi nhuận: "+money(t.profit)+" ("+t.profitRate+"%)"+
+      "\nTrạng thái: "+statusName(t.status)+
+      "\nGhi chú: "+(t.note||"-")+
+      "\nTạo: "+t.createdAt+
+      "\nSửa cuối: "+t.updatedAt);
+  }
+
+  
+  function toMinutes(hhmm){
+    if(!hhmm || hhmm.indexOf(":")<0) return 0;
+    var p=hhmm.split(":"); return Number(p[0]||0)*60 + Number(p[1]||0);
+  }
+  function checkScheduleConflict(newTrip){
+    var trips = loadTrips().filter(function(t){return !t.deleted && Number(t.status)!==4 && t.uuid !== newTrip.uuid});
+    var conflicts = [];
+    trips.forEach(function(t){
+      if((t.pickupDate||"") === (newTrip.pickupDate||"")){
+        var diff = Math.abs(toMinutes(t.pickupTime) - toMinutes(newTrip.pickupTime));
+        if(diff < 180) conflicts.push(t);
+      }
+    });
+    return conflicts;
+  }
+  function saveCurrentTrip(){
+    var trips=loadTrips();
+    var trip=tripFromCurrent();
+    var conflicts = checkScheduleConflict(trip);
+    if(conflicts.length){
+      var msg = "⚠️ CẢNH BÁO: Trùng lịch hoặc khoảng cách giờ quá sát với chuyến " + conflicts.map(function(t){return t.displayId + " (" + (t.pickupTime||"--:--") + ")"}).join(", ") + "\\n\\nBạn vẫn muốn lưu chuyến này không?";
+      if(!confirm(msg)) return;
+    }
+    trips.unshift(trip);
+    saveTrips(trips);
+    renderTrips();
+    renderMonth();
+    alert("Đã lưu chuyến: "+trip.displayId);
+  }
+  function monthLabel(ym){
+    if(!ym || ym.indexOf("-")<0) return "";
+    var p=ym.split("-");
+    return p[1]+"/"+p[0];
+  }
+  function activeTrips(){
+    return loadTrips().filter(function(t){return !t.deleted && Number(t.status)!==4});
+  }
+  function renderMonth(){
+    var ym = el("calendarMonth") ? el("calendarMonth").value : "";
+    var box = el("calendarView"); if(!box) return;
+    if(!ym){ box.innerHTML='<div class="info">Hãy chọn tháng để xem lịch.</div>'; return; }
+    var trips = activeTrips().filter(function(t){ return (t.pickupDate||"").indexOf(ym)===0; });
+    if(!trips.length){ box.innerHTML='<div class="info">Tháng '+monthLabel(ym)+' chưa có chuyến nào.</div>'; return; }
+    var group = {};
+    trips.forEach(function(t){
+      var d=t.pickupDate||"Không rõ ngày";
+      if(!group[d]) group[d]=[];
+      group[d].push(t);
+    });
+    var dates = Object.keys(group).sort();
+    var totalTrips=0,totalRevenue=0,totalProfit=0;
+    var htmlOut = '<div class="calendarSummary"><b>📅 KANE DRIVER PRO - LỊCH LÀM VIỆC THÁNG '+monthLabel(ym)+'</b></div>';
+    dates.forEach(function(d){
+      var arr=group[d].sort(function(a,b){return toMinutes(a.pickupTime)-toMinutes(b.pickupTime)});
+      var rev=arr.reduce(function(s,t){return s+Number(t.finalPrice||0)},0);
+      var prof=arr.reduce(function(s,t){return s+Number(t.profit||0)},0);
+      var accepted=arr.filter(function(t){return Number(t.status)===1 || Number(t.status)===2 || Number(t.status)===3}).length;
+      var waiting=arr.filter(function(t){return Number(t.status)===0}).length;
+      totalTrips += arr.length; totalRevenue += rev; totalProfit += prof;
+      var dp=d.split("-").reverse().join("/");
+      htmlOut += '<div class="calendarDay"><b>• Ngày '+dp+': Có '+arr.length+' chuyến xe</b>'+
+        '<div class="note">🚗 Trạng thái: '+accepted+' Đã nhận/đang chạy/hoàn thành | '+waiting+' Chờ xác nhận</div>'+
+        '<div class="note">💰 Doanh thu ngày: '+money(rev)+' | 📊 Lãi thuần: '+money(prof)+'</div></div>';
+    });
+    htmlOut += '<div class="calendarSummary"><b>📈 TỔNG KẾT THÁNG</b><br>Tổng '+totalTrips+' chuyến | Doanh thu: '+money(totalRevenue)+' | Lãi: '+money(totalProfit)+'</div>';
+    box.innerHTML = htmlOut;
+  }
+  function renderDay(dateStr){
+    var box=el("calendarView"); if(!box)return;
+    var d = dateStr || (el("calendarDate") ? el("calendarDate").value : "");
+    if(!d){box.innerHTML='<div class="info">Hãy chọn ngày để xem chi tiết.</div>';return}
+    var trips=activeTrips().filter(function(t){return (t.pickupDate||"")===d}).sort(function(a,b){return toMinutes(a.pickupTime)-toMinutes(b.pickupTime)});
+    if(!trips.length){box.innerHTML='<div class="info">Ngày '+d.split("-").reverse().join("/")+' chưa có chuyến nào.</div>';return}
+    var totalRevenue=trips.reduce(function(s,t){return s+Number(t.finalPrice||0)},0);
+    var totalProfit=trips.reduce(function(s,t){return s+Number(t.profit||0)},0);
+    var out='<div class="calendarSummary"><b>📅 LỊCH NGÀY '+d.split("-").reverse().join("/")+'</b><br>'+trips.length+' chuyến | Doanh thu: '+money(totalRevenue)+' | Lãi: '+money(totalProfit)+'</div>';
+    trips.forEach(function(t){
+      var lamp=profitLamp(t.profitRate);
+      out += '<div class="calendarTrip"><div class="calendarTime">'+(t.pickupTime||"--:--")+' • '+statusName(t.status)+'</div>'+
+        '<div class="row"><span>🆔 Mã</span><b>'+t.displayId+'</b></div>'+
+        '<div class="row"><span>👤 Khách</span><b>'+(t.customerName||"Khách vãng lai")+' - '+(t.customerPhone||"Chưa cập nhật")+'</b></div>'+
+        '<div class="row"><span>📍 Tuyến</span><b>'+(t.route||"-")+'</b></div>'+
+        '<div class="row"><span>Hành trình</span><b>'+tripTimeLabel(t)+'</b></div>'+
+        '<div class="row"><span>💰 Giá</span><b>'+money(t.finalPrice)+'</b></div>'+
+        '<div class="row"><span>📊 Lãi</span><b class="'+lamp.cls+'">'+lamp.icon+' '+money(t.profit)+' ('+t.profitRate+'%)</b></div>'+
+        '<div class="row"><span>💳 Thanh toán</span><b>'+paymentName(t.paymentStatus)+'</b></div></div>';
+    });
+    box.innerHTML=out;
+  }
+  function setCalendarDefaults(){
+    var d=new Date();
+    var yyyy=d.getFullYear(), mm=String(d.getMonth()+1).padStart(2,"0"), dd=String(d.getDate()).padStart(2,"0");
+    if(el("calendarMonth") && !el("calendarMonth").value) el("calendarMonth").value=yyyy+"-"+mm;
+    if(el("calendarDate") && !el("calendarDate").value) el("calendarDate").value=yyyy+"-"+mm+"-"+dd;
+  }
+
+  
+  function vnDate(dateStr){
+    if(!dateStr || dateStr.indexOf("-")<0) return dateStr || "-";
+    return dateStr.split("-").reverse().join("/");
+  }
+  function vnDateTime(t){
+    return vnDate(t.pickupDate) + " • " + (t.pickupTime || "--:--");
+  }
+  function isTodayStr(dateStr){
+    var d=new Date();
+    var today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    return dateStr===today;
+  }
+  function timeLineText(){
+    if(current.type === "mot_chieu") return "Theo chuyến (Đón trả 1 chiều)";
+    if(current.days === 1) return "Trong ngày (Khứ hồi)";
+    return current.days + " ngày (Khứ hồi)";
+  }
+  function tripTimeLabel(t){
+    if(t.tripType === "mot_chieu") return t.oneWayKm+" km • 1 chiều • Theo chuyến";
+    if(Number(t.days||1) === 1) return t.oneWayKm+" km • Khứ hồi • Trong ngày";
+    return t.oneWayKm+" km • Khứ hồi • "+(t.days||1)+" ngày";
+  }
+
+  var __oldRenderV131 = render;
+  render = function(){
+    __oldRenderV131();
+    if(!current || typeof current.quote === "undefined") return;
+    var timeLine = timeLineText();
+
+    el("customerReceipt").textContent =
+`🚖 KANE DRIVER PRO
+
+📊 TỔNG BÁO GIÁ DỊCH VỤ
+💰 ${money(current.quote)}
+
+- Đã cọc: ${money(current.deposit)} | Còn lại: ${money(current.remain)}
+- Quãng đường: ${current.S} km
+- Thời gian: ${timeLine}
+- Hình thức: ${current.type === "khu_hoi" ? "Khứ hồi" : "1 chiều"}
+- Lộ trình: ${current.pickup || "-"} ➡️ ${current.destination || "-"}
+- Thời gian đón: ${dateText()}
+
+⚠️ Lưu ý: Giá trên chưa bao gồm phí cầu đường (BOT). Phí BOT khách vui lòng thanh toán riêng theo hóa đơn thực tế phát sinh khi di chuyển.
+${current.days >= 2 ? "Giá đã gồm phụ phí lưu xe + tài xế tự túc trong thời gian phục vụ." : ""}
+
+Rất hân hạnh được phục vụ Quý khách!`;
+
+    el("internalReceipt").textContent =
+`🛞 BẢNG KIỂM TRA LỢI NHUẬN NỘI BỘ
+🚗 Dòng xe phục vụ: Toyota Vios G 2022
+
+Giá đề xuất của hệ thống: ${money(current.proposed)}
+Giá thực tế chốt với khách: ${money(current.quote)}
+
+Tổng km lăn bánh dùng để tính chi phí:
+2 × ${current.S} + ${current.extraDays} × ${num("serviceKmPerDay")} = ${current.realKm} km
+
+Tiền xăng dự toán:
+(${current.realKm} / 100) × ${num("fuelPrice").toLocaleString("vi-VN")} × ${num("fuelRate")} = ${money(current.fuel)}
+
+Phí khấu hao xe:
+${current.realKm} × ${num("depreciation").toLocaleString("vi-VN")} = ${money(current.dep)}
+
+Lương tài xế:
+${money(current.wage)}
+Trong đó công ngày phát sinh:
+${money(current.extraDays * num("extraDriverWage"))}
+
+LỢI NHUẬN THỰC TẾ:
+${money(current.profit)}
+
+Tỷ suất lợi nhuận:
+${current.rate.toFixed(1)}%
+
+QUYẾT ĐỊNH ĐỀ XUẤT:
+${current.decision.text}
+${current.decision.note}`;
+  };
+
+  function checkScheduleConflict(newTrip){
+    var trips = loadTrips().filter(function(t){
+      return !t.deleted && (Number(t.status)===1 || Number(t.status)===2) && t.uuid !== newTrip.uuid;
+    });
+    var conflicts = [];
+    trips.forEach(function(t){
+      if((t.pickupDate||"") === (newTrip.pickupDate||"")){
+        var diff = Math.abs(toMinutes(t.pickupTime) - toMinutes(newTrip.pickupTime));
+        if(diff < 180) conflicts.push(t);
+      }
+    });
+    return conflicts;
+  }
+
+  function renderTrips(){
+    var trips=loadTrips(), box=el("tripList"); if(!box)return;
+    if(!trips.length){box.innerHTML='<div class="info">Chưa có chuyến nào được lưu.</div>';return}
+    box.innerHTML=trips.map(function(t){
+      var lamp = profitLamp(t.profitRate);
+      return '<div class="tripCard">'+
+      '<div class="tripTop"><div><div class="tripId">🆔 '+t.displayId+'</div><div class="note">📅 '+vnDateTime(t)+'</div></div><b>'+statusName(t.status)+'</b></div>'+
+      '<div class="row"><span>👤 Khách</span><b>'+(t.customerName||"Khách vãng lai")+' - '+(t.customerPhone||"Chưa cập nhật")+'</b></div>'+
+      '<div class="row"><span>📍 Tuyến</span><b>'+(t.route||"-")+'</b></div>'+
+      '<div class="row"><span>Km / Hình thức</span><b>'+tripTimeLabel(t)+'</b></div>'+
+      '<div class="row"><span>💰 Giá chốt</span><b>'+money(t.finalPrice)+'</b></div>'+
+      '<div class="row"><span>Cọc / Còn lại</span><b>Cọc: '+money(t.deposit)+' • Còn lại: '+money(t.remain)+'</b></div>'+
+      '<div class="row"><span>💳 Thanh toán</span><b>'+paymentName(t.paymentStatus)+'</b></div>'+
+      '<div class="row"><span>📊 Lãi thuần</span><b class="'+lamp.cls+'">'+lamp.icon+' '+money(t.profit)+' ('+t.profitRate+'%)</b></div>'+
+      '<select class="statusSelect" data-status="'+t.uuid+'"><option value="0">🟡 Chưa xác nhận</option><option value="1">🟢 Đã nhận</option><option value="2">🚗 Đang chạy</option><option value="3">✅ Hoàn thành</option><option value="4">❌ Đã hủy</option></select>'+
+      '<select class="paySelect" data-pay="'+t.uuid+'"><option value="0">🔴 Chưa thanh toán</option><option value="1">🟡 Đã cọc</option><option value="2">🟢 Đã thu đủ</option></select>'+
+      '<div class="tripActions"><button class="smallBtn" data-view="'+t.uuid+'">👁 Chi tiết</button><button class="smallBtn green" data-update="'+t.uuid+'">💾 Lưu trạng thái</button><button class="smallBtn red" data-delete="'+t.uuid+'">🗑 Xóa mềm</button></div></div>';
+    }).join("");
+    saveTrips(trips);
+    document.querySelectorAll("[data-status]").forEach(function(s){ var id=s.getAttribute("data-status"), t=trips.find(function(x){return x.uuid===id}); if(t)s.value=t.status; });
+    document.querySelectorAll("[data-pay]").forEach(function(s){ var id=s.getAttribute("data-pay"), t=trips.find(function(x){return x.uuid===id}); if(t)s.value=t.paymentStatus||0; });
+    document.querySelectorAll("[data-view]").forEach(function(b){b.onclick=function(){viewTrip(this.getAttribute("data-view"))}});
+    document.querySelectorAll("[data-update]").forEach(function(b){b.onclick=function(){updateTripStatus(this.getAttribute("data-update"))}});
+    document.querySelectorAll("[data-delete]").forEach(function(b){b.onclick=function(){softDeleteTrip(this.getAttribute("data-delete"))}});
+  }
+
+  function renderMonth(){
+    var ym = el("calendarMonth") ? el("calendarMonth").value : "";
+    var box = el("calendarView"); if(!box) return;
+    if(!ym){ box.innerHTML='<div class="info">Hãy chọn tháng để xem lịch.</div>'; return; }
+    var trips = activeTrips().filter(function(t){ return (t.pickupDate||"").indexOf(ym)===0; });
+    if(!trips.length){ box.innerHTML='<div class="info">Tháng '+monthLabel(ym)+' chưa có chuyến nào.</div>'; return; }
+
+    var group = {};
+    trips.forEach(function(t){
+      var d=t.pickupDate||"Không rõ ngày";
+      if(!group[d]) group[d]=[];
+      group[d].push(t);
+    });
+
+    var dates = Object.keys(group).sort();
+    var totalTrips=0,totalRevenue=0,totalProfit=0,totalDebt=0;
+    var htmlOut = '<div class="monthHeader"><b>📅 KANE DRIVER PRO - TRUNG TÂM ĐIỀU PHỐI LỊCH LÀM VIỆC</b><br>🗓 Tháng: '+monthLabel(ym)+'</div>';
+
+    dates.forEach(function(d){
+      var arr=group[d].sort(function(a,b){return toMinutes(a.pickupTime)-toMinutes(b.pickupTime)});
+      var rev=arr.reduce(function(s,t){return s+Number(t.finalPrice||0)},0);
+      var prof=arr.reduce(function(s,t){return s+Number(t.profit||0)},0);
+      var debt=arr.reduce(function(s,t){return s+(Number(t.paymentStatus||0)===2?0:Number(t.remain||0))},0);
+      var accepted=arr.filter(function(t){return Number(t.status)===1 || Number(t.status)===2 || Number(t.status)===3}).length;
+      var waiting=arr.filter(function(t){return Number(t.status)===0}).length;
+      var dot = accepted>0 ? "🟢" : "🟡";
+      totalTrips += arr.length; totalRevenue += rev; totalProfit += prof; totalDebt += debt;
+
+      htmlOut += '<div class="calendarDay '+(isTodayStr(d)?"today":"")+'">'+
+        '<b>[ ] Ngày '+vnDate(d).slice(0,5)+(isTodayStr(d)?' <span class="todayTag">HÔM NAY</span>':'')+'</b>'+
+        '<div class="calendarDots">🚦 Trạng thái: '+arr.length+' chuyến xe chạy → '+dot+' <span class="note">'+accepted+' đã nhận/đang chạy/hoàn thành • '+waiting+' chờ xác nhận</span></div>'+
+        '<div class="note">💰 Tổng thu ngày: '+money(rev)+' | 📊 Lãi thuần nội bộ: '+money(prof)+'</div>'+
+        '<div class="note">💳 Công nợ ngày: '+money(debt)+'</div>'+
+      '</div>';
+    });
+
+    htmlOut += '<div class="calendarSummary"><b>📊 TỔNG KẾT HOẠT ĐỘNG THÁNG</b><br>'+
+      '- Tổng số chuyến phục vụ: '+totalTrips+' chuyến<br>'+
+      '- Tổng Doanh thu thu về: '+money(totalRevenue)+'<br>'+
+      '- Tổng Lợi nhuận thực tế: '+money(totalProfit)+'<br>'+
+      '- Trạng thái công nợ tháng: 🔴 '+money(totalDebt)+' chưa thu hồi.</div>';
+    box.innerHTML = htmlOut;
+  }
+
+  function renderDay(dateStr){
+    var box=el("calendarView"); if(!box)return;
+    var d = dateStr || (el("calendarDate") ? el("calendarDate").value : "");
+    if(!d){box.innerHTML='<div class="info">Hãy chọn ngày để xem chi tiết.</div>';return}
+    var trips=activeTrips().filter(function(t){return (t.pickupDate||"")===d}).sort(function(a,b){return toMinutes(a.pickupTime)-toMinutes(b.pickupTime)});
+    if(!trips.length){box.innerHTML='<div class="info">Ngày '+vnDate(d)+' chưa có chuyến nào.</div>';return}
+    var totalRevenue=trips.reduce(function(s,t){return s+Number(t.finalPrice||0)},0);
+    var totalProfit=trips.reduce(function(s,t){return s+Number(t.profit||0)},0);
+    var totalDebt=trips.reduce(function(s,t){return s+(Number(t.paymentStatus||0)===2?0:Number(t.remain||0))},0);
+    var out='<div class="calendarSummary"><b>📅 LỊCH NGÀY '+vnDate(d)+(isTodayStr(d)?' - HÔM NAY':'')+'</b><br>'+trips.length+' chuyến | Doanh thu: '+money(totalRevenue)+' | Lãi: '+money(totalProfit)+' | Công nợ: '+money(totalDebt)+'</div>';
+    trips.forEach(function(t){
+      var lamp=profitLamp(t.profitRate);
+      out += '<div class="calendarTrip"><div class="calendarTime">'+(t.pickupTime||"--:--")+' • '+statusName(t.status)+'</div>'+
+        '<div class="row"><span>🆔 Mã</span><b>'+t.displayId+'</b></div>'+
+        '<div class="row"><span>👤 Khách</span><b>'+(t.customerName||"Khách vãng lai")+' - '+(t.customerPhone||"Chưa cập nhật")+'</b></div>'+
+        '<div class="row"><span>📍 Tuyến</span><b>'+(t.route||"-")+'</b></div>'+
+        '<div class="row"><span>Hành trình</span><b>'+tripTimeLabel(t)+'</b></div>'+
+        '<div class="row"><span>💰 Giá</span><b>'+money(t.finalPrice)+'</b></div>'+
+        '<div class="row"><span>📊 Lãi</span><b class="'+lamp.cls+'">'+lamp.icon+' '+money(t.profit)+' ('+t.profitRate+'%)</b></div>'+
+        '<div class="row"><span>💳 Thanh toán</span><b>'+paymentName(t.paymentStatus)+'</b></div></div>';
+    });
+    box.innerHTML=out;
+  }
+
   document.addEventListener("DOMContentLoaded",function(){
     loadConfig();
     var bs=document.querySelectorAll(".routeBtn");for(var i=0;i<bs.length;i++)bs[i].addEventListener("click",function(){chooseRoute(Number(this.getAttribute("data-route")))});
@@ -203,7 +737,16 @@ ${current.decision.note}`;
     el("calcBtn").addEventListener("click",calculate);
     el("copyCustomerBtn").addEventListener("click",function(){calculate();copyText(el("customerReceipt").innerText,"Đã sao chép phiếu gửi khách.",true)});
     el("copyInternalBtn").addEventListener("click",function(){calculate();copyText(el("internalReceipt").innerText,"Đã sao chép phiếu nội bộ.",false)});
-    setDefaultTime();calculate();
+    el("saveTripBtn").addEventListener("click",saveCurrentTrip);
+    el("showTripsBtn").addEventListener("click",renderTrips);
+    el("exportJsonBtn").addEventListener("click",exportJson);
+    el("importJsonBtn").addEventListener("click",importJson);
+    el("clearTrashBtn").addEventListener("click",clearTrash);
+    el("viewMonthBtn").addEventListener("click",renderMonth);
+    el("viewTodayBtn").addEventListener("click",function(){setCalendarDefaults();renderDay(el("calendarDate").value)});
+    el("viewDayBtn").addEventListener("click",function(){renderDay(el("calendarDate").value)});
+    el("clearCalendarBtn").addEventListener("click",function(){el("calendarView").innerHTML=""});
+    setDefaultTime();setCalendarDefaults();calculate();renderTrips();renderMonth();
   });
 })();
 </script>
